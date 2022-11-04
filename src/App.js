@@ -7,12 +7,12 @@ import Search from "./Search";
 const movieapi = 'http://www.omdbapi.com/?i=tt3896198&apikey=e7ec55c';
 
 const App = () => {
-//    const [searchTerm, setSearchTerm] = useState("");
+
     const [movies, setMovies] = useState([]);
   
-   useEffect(() => {
-     searchMovies("Spiderman");
-   }, []);
+    useEffect(() => {
+      searchMovies("Spiderman");
+    }, []);
   
     const searchMovies = async (title) => {
       const response = await fetch(`${movieapi}&s=${title}`);
