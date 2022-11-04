@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import './App.css';
-// import SearchIcon from './search.svg';
-import MovieCard from "./MovieCard";
 import Search from "./Search";
+import Results from "./Results";
 
 const movieapi = 'http://www.omdbapi.com/?i=tt3896198&apikey=e7ec55c';
 
@@ -25,20 +24,7 @@ const App = () => {
         <div className="app">
           <h1>Movie Site</h1>
           <Search searchOnClick={searchMovies}/>
-
-          {movies?.length > 0 ? (
-            <div className="container">
-              {movies.map((movie) => (
-                <div key={movie.imdbID}>
-                    <MovieCard movie={movie} />
-                </div>
-              ))}
-            </div>
-          ) : (
-            <div className="empty">
-              <h2>No movies found</h2>
-            </div>
-          )}
+          <Results movieResults={movies}/>
         </div>
       );
     };
